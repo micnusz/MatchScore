@@ -4,12 +4,61 @@ export interface FixturesResponse {
   meta: Meta;
 }
 
+export interface LeagueResponse {
+  data: LeagueData[];
+  pagination: Pagination;
+  meta: Meta;
+}
 export interface FixtureData {
   fixture: Fixture;
   league: League;
   teams: Teams;
   goals: Goals;
   score: Score;
+}
+
+export interface CountriesResponse {
+  data: CountriesData[];
+  pagination: Pagination;
+  meta: Meta;
+}
+
+export interface LeagueData {
+  league: League;
+  country: Country;
+  seasons: Season[];
+}
+
+export interface Season {
+  year: number;
+  start: string;
+  end: string;
+  current: boolean;
+  coverage: Coverage;
+}
+
+export interface Coverage {
+  fixtures: Fixtures;
+  standings: boolean;
+  players: boolean;
+  top_scorers: boolean;
+  top_assists: boolean;
+  top_cards: boolean;
+  injuries: boolean;
+  predictions: boolean;
+  odds: boolean;
+}
+
+export interface CountriesData {
+  name: string;
+  code?: string;
+  flag?: string;
+}
+
+export interface Country {
+  name: string;
+  code: string;
+  flag: string;
 }
 
 export interface Fixture {
@@ -21,6 +70,13 @@ export interface Fixture {
   periods: Periods;
   venue: Venue;
   status: Status;
+}
+
+export interface Fixtures {
+  events: boolean;
+  lineups: boolean;
+  statistics_fixtures: boolean;
+  statistics_players: boolean;
 }
 
 export interface Periods {
