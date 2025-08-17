@@ -1,22 +1,10 @@
-export interface Root {
-  get: string;
-  parameters: Parameters;
-  errors: any[];
-  results: number;
-  paging: Paging;
-  response: Response[];
+export interface FixturesResponse {
+  data: FixtureData[];
+  pagination: Pagination;
+  meta: Meta;
 }
 
-export interface Parameters {
-  date: string;
-}
-
-export interface Paging {
-  current: number;
-  total: number;
-}
-
-export interface Response {
+export interface FixtureData {
   fixture: Fixture;
   league: League;
   teams: Teams;
@@ -26,7 +14,7 @@ export interface Response {
 
 export interface Fixture {
   id: number;
-  referee?: string;
+  referee: string | null;
   timezone: string;
   date: string;
   timestamp: number;
@@ -36,21 +24,21 @@ export interface Fixture {
 }
 
 export interface Periods {
-  first?: number;
-  second?: number;
+  first: number | null;
+  second: number | null;
 }
 
 export interface Venue {
-  id?: number;
-  name?: string;
-  city?: string;
+  id: number | null;
+  name: string | null;
+  city: string | null;
 }
 
 export interface Status {
   long: string;
   short: string;
-  elapsed?: number;
-  extra?: number;
+  elapsed: number | null;
+  extra: number | null;
 }
 
 export interface League {
@@ -58,59 +46,51 @@ export interface League {
   name: string;
   country: string;
   logo: string;
-  flag?: string;
+  flag: string | null;
   season: number;
   round: string;
   standings: boolean;
 }
 
 export interface Teams {
-  home: Home;
-  away: Away;
+  home: Team;
+  away: Team;
 }
 
-export interface Home {
+export interface Team {
   id: number;
   name: string;
   logo: string;
-  winner?: boolean;
-}
-
-export interface Away {
-  id: number;
-  name: string;
-  logo: string;
-  winner?: boolean;
+  winner: boolean | null;
 }
 
 export interface Goals {
-  home?: number;
-  away?: number;
+  home: number | null;
+  away: number | null;
 }
 
 export interface Score {
-  halftime: Halftime;
-  fulltime: Fulltime;
-  extratime: Extratime;
-  penalty: Penalty;
+  halftime: ScoreDetails;
+  fulltime: ScoreDetails;
+  extratime: ScoreDetails;
+  penalty: ScoreDetails;
 }
 
-export interface Halftime {
-  home?: number;
-  away?: number;
+export interface ScoreDetails {
+  home: number | null;
+  away: number | null;
 }
 
-export interface Fulltime {
-  home?: number;
-  away?: number;
+export interface Pagination {
+  totalItems: number;
+  totalPages: number;
+  currentPage: number;
+  itemsPerPage: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
 }
 
-export interface Extratime {
-  home?: number;
-  away?: number;
-}
-
-export interface Penalty {
-  home?: number;
-  away?: number;
+export interface Meta {
+  cached: boolean;
+  itemCount: number;
 }

@@ -1,10 +1,10 @@
 "use client";
 
-import { Response } from "@/lib/types";
+import { FixtureData } from "@/lib/types";
 import Image from "next/image";
 
 type FixtureCardDialogProps = {
-  data: Response;
+  data: FixtureData;
 };
 
 const FixtureCardDialog = ({ data }: FixtureCardDialogProps) => {

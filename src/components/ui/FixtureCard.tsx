@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Bookmark, CircleEllipsis, Egg } from "lucide-react";
 import { Separator } from "./separator";
 import { useStore } from "@/lib/useStore";
-import { Response } from "@/lib/types";
 import Image from "next/image";
 import {
   Dialog,
@@ -15,9 +14,10 @@ import {
 } from "@/components/ui/dialog";
 import FixtureCardDialog from "./FixtureCardDialog";
 import { toZonedTime, format } from "date-fns-tz";
+import { FixtureData } from "@/lib/types";
 
 type FixtureCardProps = {
-  data: Response;
+  data: FixtureData;
 };
 
 const FixtureCard = ({ data }: FixtureCardProps) => {
