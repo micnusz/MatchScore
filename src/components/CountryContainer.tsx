@@ -2,6 +2,8 @@
 
 import { useLeagueByCountry } from "@/hooks/useLeagueByCountry";
 import Spinner from "./ui/spinner";
+import LeagueCard from "./ui/LeagueCard";
+import Link from "next/link";
 
 type CountryContainerProps = {
   countryName: string;
@@ -14,9 +16,14 @@ const CountryContainer = ({ countryName }: CountryContainerProps) => {
 
   return (
     <div>
-      <ul>
+      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {data?.response?.map((league) => (
-          <li key={league.league.id}>{league.league.name}</li>
+          <Link
+            href={`/football/${countryName}/${league.league.id}`}
+            key={league.league.id}
+          >
+            <LeagueCard data={league} />
+          </Link>
         ))}
       </ul>
     </div>

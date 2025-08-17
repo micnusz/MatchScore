@@ -5,7 +5,7 @@ export interface FixturesResponse {
 }
 
 export interface LeagueResponse {
-  data: LeagueData[];
+  response: LeagueData[];
   pagination: Pagination;
   meta: Meta;
 }

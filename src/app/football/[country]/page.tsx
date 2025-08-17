@@ -8,7 +8,7 @@ interface CountryPageProps {
 export default async function CountryPage({ params }: CountryPageProps) {
   const countryName = params.country;
   return (
-    <div>
+    <div className="fluid-padding">
       <CountryContainer countryName={countryName} />
     </div>
   );
